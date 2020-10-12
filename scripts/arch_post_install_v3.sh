@@ -13,16 +13,19 @@ NTP=0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.pool.ntp.
 FallbackNTP=0.pool.ntp.org 1.pool.ntp.org 0.fr.pool.ntp.org
 EOT
 
+# Add my user to the administration group
+sudo usermod -aG wheel rema
+
 # Install basic programs
 sudo pacman -S alacritty alsa-utils arandr arc-gtk-theme arc-icon-theme \
 base-devel dunst xdg-user-dirs i3-wm i3lock i3status dmenu gvim noto-fonts-emoji \
-ntfs-3g xorg-server lxappearance-gtk3 ffmpegthumbnailer parcellite catfish \
+ntfs-3g xorg-server lxappearance-gtk3 ffmpegthumbnailer figlet catfish \
 xorg-xinit xorg-xset mesa libnotify inkscape thunar thunar-archive-plugin git \
 thunar-media-tags-plugin gvfs gvfs-mtp numlockx unrar zip unzip gzip bzip2 xz \
 p7zip transmission-gtk gimp dialog wpa_supplicant filezilla openssh mlocate \
-file-roller ristretto tumbler polkit lxsession vlc gnome-screenshot code \
-fzf compton bash-completion figlet nitrogen networkmanager ttf-dejavu \
-ttf-inconsolata ttf-ubuntu-font-family ttf-roboto ttf-croscore --needed --noconfirm
+file-roller ristretto tumbler polkit polkit-gnome vlc gnome-screenshot code \
+fzf compton bash-completion nitrogen networkmanager ttf-dejavu ttf-inconsolata \
+ttf-ubuntu-font-family ttf-roboto ttf-croscore --needed --noconfirm
 
 # Install yay, a pacman wrapper with AUR support
 git clone https://aur.archlinux.org/yay.git \

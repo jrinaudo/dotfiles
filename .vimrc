@@ -144,7 +144,7 @@ set listchars=tab:>-,space:·,trail:~,extends:>,precedes:<
 set showcmd
 
 " Show vertical ruler
-set colorcolumn=80
+set colorcolumn=120
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -408,6 +408,7 @@ Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 Plug 'tpope/vim-rails'
+Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug '/usr/bin/fzf'
 call plug#end()

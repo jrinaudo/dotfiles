@@ -36,7 +36,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+d exec --no-startup-id rofi -modi drun -theme Arc-Dark -font "SFNS Display Regular 11" -show-icons -width 20 -show drun
+bindsym $mod+d exec --no-startup-id rofi -modi drun -theme Arc-Dark -font "Noto Sans Display Regular 11" -show-icons -width 25 -show drun
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run -fn 'SFNS Display Regular-10'
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -201,13 +201,12 @@ bindsym XF86AudioLowerVolume exec amixer -q set Master 3%- unmute #decrease soun
 bindsym XF86AudioMute exec amixer -q set Master toggle # mute sound
 
 # Lock the screen and autolock
-bindsym $mod+Control+l exec '~/scripts/i3blurlock.sh'
+bindsym $mod+Control+l exec '/home/rema/scripts/i3blurlock.sh'
 
 # Frequent programs shortcuts
 bindsym $mod+x exec thunar ~/Downloads
 bindsym $mod+n exec google-chrome-stable
 
 exec --no-startup-id dunst
-exec --no-startup-id parcellite
 exec google-chrome-stable
 
