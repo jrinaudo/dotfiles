@@ -13,6 +13,26 @@ NTP=0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.pool.ntp.
 FallbackNTP=0.pool.ntp.org 1.pool.ntp.org 0.fr.pool.ntp.org
 EOT
 
+# Configure iptables firewall
+sudo tee /etc/iptables/iptables.rules > /dev/null <<EOT
+*filter
+:INPUT DROP [0:0]
+:FORWARD DROP [0:0]
+:OUTPUT ACCEPT [0:0]
+:TCP - [0:0]
+:UDP - [0:0]
+-A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+-A INPUT -i lo -j ACCEPT
+-A INPUT -m conntrack --ctstate INVALID -j DROP
+-A INPUT -p icmp -m icmp --icmp-type 8 -m conntrack --ctstate NEW -j ACCEPT
+-A INPUT -p udp -m conntrack --ctstate NEW -j UDP
+-A INPUT -p tcp --tcp-flags FIN,SYN,RST,ACK SYN -m conntrack --ctstate NEW -j TCP
+-A INPUT -p udp -j REJECT --reject-with icmp-port-unreachable
+-A INPUT -p tcp -j REJECT --reject-with tcp-reset
+-A INPUT -j REJECT --reject-with icmp-proto-unreachable
+COMMIT
+EOT
+
 # Add my user to the administration group
 sudo usermod -aG wheel rema
 
@@ -25,13 +45,21 @@ thunar-media-tags-plugin gvfs gvfs-mtp numlockx unrar zip unzip gzip bzip2 xz \
 p7zip transmission-gtk gimp dialog wpa_supplicant filezilla openssh mlocate \
 file-roller ristretto tumbler polkit polkit-gnome vlc gnome-screenshot code \
 fzf compton bash-completion nitrogen networkmanager ttf-dejavu ttf-inconsolata \
-ttf-ubuntu-font-family ttf-roboto ttf-croscore --needed --noconfirm
+pulseaudio pulseaudio-alsa pulseaudio-bluetooth pavucontrol bluez bluez-utils \
+blueman ttf-ubuntu-font-family ttf-roboto ttf-croscore --needed --noconfirm
 
 # Install yay, a pacman wrapper with AUR support
 git clone https://aur.archlinux.org/yay.git \
 && cd yay \
 && makepkg -si \
 && yay -S google-chrome ttf-monaco ttf-yosemite-san-francisco-font-git
+
+# get pulseaudio to handle X11 bell events
+sudo tee -a /etc/pulse/default.pa > /dev/null <<EOT
+# audible bell
+load-sample-lazy x11-bell /usr/share/sounds/freedesktop/stereo/bell.oga
+load-module module-x11-bell sample=x11-bell
+EOT
 
 # Create the config file to set the X window system keyboard layout
 localectl --no-convert set-x11-keymap latin
@@ -48,6 +76,7 @@ EOT
 # Services
 sudo systemctl enable NetworkManager.service
 sudo systemctl enable systemd-timesyncd.service
+sudo systemctl enable iptables.service
 # If there is any SSD with TRIM support
 # sudo systemctl enable fstrim.timer
 

@@ -17,6 +17,7 @@ alias gc='git commit'
 alias gca='git commit --amend'
 alias gcm='git commit -m'
 alias gcod='git checkout develop'
+alias gcom='git checkout main'
 alias gd='git diff'
 alias gf='git fetch'
 alias gl="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'"
@@ -57,6 +58,7 @@ export HISTFILESIZE=10000
 # bash-git-prompt
 if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
     GIT_PROMPT_ONLY_IN_REPO=1
+    GIT_PROMPT_FETCH_REMOTE_STATUS=0
     source $HOME/.bash-git-prompt/gitprompt.sh
 fi
 
