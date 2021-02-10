@@ -16,13 +16,16 @@ alias gaa='git add -A'
 alias gc='git commit'
 alias gca='git commit --amend'
 alias gcm='git commit -m'
+alias gcp='git cherry-pick'
 alias gcod='git checkout develop'
 alias gcom='git checkout main'
 alias gd='git diff'
-alias gf='git fetch'
+alias gfod='git fetch origin develop'
 alias gl="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'"
 alias gp='git push'
 alias gpf='git push --force-with-lease'
+alias gpod='git pull origin develop'
+alias gpom='git pull origin main'
 alias gs='git status'
 alias reflector='sudo reflector --verbose --latest 10 --protocol http --protocol https --sort rate --save /etc/pacman.d/mirrorlist'
 alias svim='sudo vim'
@@ -51,7 +54,7 @@ man() {
 PS1='\W \$ '
 
 # bash_history options
-export HISTCONTROL=ignoreboth
+export HISTCONTROL=ignoreboth:erasedups
 export HISTSIZE=10000
 export HISTFILESIZE=10000
 
