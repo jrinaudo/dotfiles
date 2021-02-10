@@ -1,0 +1,119 @@
+# i3blocks config file
+#
+# Please see man i3blocks for a complete reference!
+# The man page is also hosted at http://vivien.github.io/i3blocks
+#
+# List of valid properties:
+#
+# align
+# color
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
+
+# Global properties
+#
+# The top properties below are applied to every block, but can be overridden.
+# Each block command defaults to the script name to avoid boilerplate.
+# Change $SCRIPT_DIR to the location of your scripts!
+command=~/scripts/i3blocks/$BLOCK_NAME
+separator_block_width=15
+markup=none
+
+[bitcoin]
+interval=600
+color=#f2a900
+
+[weather]
+command=curl -Ss 'https://wttr.in/Rosario?0&T&Q' | cut -c 16- | head -2 | xargs echo
+interval=3600
+color=#A4C2F4
+
+[disk]
+command=~/scripts/i3blocks/disk -f " {used} {funit}iB / {total} {tunit}iB ({pused}%)" -tc '{pfree}' '<' 20 -tc '{pfree}' '<' 10
+instance=/
+interval=30
+
+[disk]
+command=~/scripts/i3blocks/disk -f " {used} {funit}iB / {total} {tunit}iB ({pused}%)" -tc '{pfree}' '<' 20 -tc '{pfree}' '<' 10
+instance=/home
+interval=30
+
+[cpu]
+label=  
+interval=5
+
+[memory]
+label=  
+interval=5
+
+[iface]
+LABEL=  
+IFACE=enp2s0
+ADDRESS_FAMILY=inet6?
+color=#00cc00
+interval=5
+
+#[wifi]
+#label=  
+#INTERFACE=
+#interval=60
+#separator=false
+
+#[ssid]
+#INTERFACE=wlp0s20u2
+#interval=60
+
+[iptables]
+command=systemd_unit
+markup=pango
+label= iptables: 
+interval=once
+UNIT_NAME=iptables.service
+ACTIVE_COLOR=green
+INACTIVE_COLOR=orange
+FAILED_COLOR=red
+
+[volume-pulseaudio]
+interval=once
+signal=1
+#MIXER=[determined automatically]
+#SCONTROL=[determined automatically]
+##exposed format variables: ${SYMB}, ${VOL}, ${INDEX}, ${NAME}
+LONG_FORMAT="${SYMB} ${VOL}%"
+SHORT_FORMAT="${SYMB} ${VOL}%"
+#AUDIO_HIGH_SYMBOL='  '
+#AUDIO_MED_THRESH=50
+#AUDIO_MED_SYMBOL='  '
+#AUDIO_LOW_THRESH=0
+#AUDIO_LOW_SYMBOL='  '
+#AUDIO_DELTA=5
+#DEFAULT_COLOR="#ffffff"
+#MUTED_COLOR="#a0a0a0"
+#USE_ALSA_NAME=0
+#USE_DESCRIPTION=0
+## SUBSCRIBE=1 requires interval=persist and always uses LONG_FORMAT
+#SUBSCRIBE=0
+
+[time_usa]
+command=echo "USA: $(TZ=America/New_York date +%T)"
+interval=5
+
+[time_arg]
+command=echo "ARG: $(date +%T)"
+interval=5
+
+[rofi-calendar]
+interval=3600
+LABEL=  
+DATEFTM=+%a. %d %b. %Y
+#SHORTFTM=+%d.%m.%Y

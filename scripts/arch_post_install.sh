@@ -34,16 +34,78 @@ COMMIT
 EOT
 
 # Install basic programs
-sudo pacman -S alacritty alsa-utils arandr arc-gtk-theme arc-icon-theme \
-base-devel dunst xdg-user-dirs i3-wm i3lock i3status dmenu gvim noto-fonts-emoji \
-ntfs-3g xorg-server lxappearance-gtk3 ffmpegthumbnailer figlet catfish \
-xorg-xinit xorg-xset mesa libnotify inkscape thunar thunar-archive-plugin git \
-thunar-media-tags-plugin gvfs gvfs-mtp numlockx unrar zip unzip gzip bzip2 xz \
-p7zip transmission-gtk gimp dialog wpa_supplicant filezilla openssh mlocate \
-file-roller ristretto tumbler polkit polkit-gnome vlc gnome-screenshot code \
-fzf compton bash-completion nitrogen networkmanager ttf-dejavu ttf-inconsolata \
-pulseaudio pulseaudio-alsa pulseaudio-bluetooth pavucontrol bluez bluez-utils \
-blueman ttf-ubuntu-font-family ttf-roboto ttf-croscore --needed --noconfirm
+sudo pacman -S --needed --noconfirm
+alacritty \
+alsa-utils \
+arandr \
+arc-gtk-theme \
+arc-icon-theme \
+base-devel \
+bash-completion \
+blueman \
+bluez \
+bluez-utils \
+bzip2 \
+catfish \
+code \
+compton \
+dmenu \
+dunst \
+ffmpegthumbnailer \
+figlet \
+file-roller \
+filezilla \
+fzf \
+gimp \
+git \
+gnome-screenshot \
+gvfs \
+gvfs-mtp \
+gvim \
+gzip \
+i3-wm \
+i3blocks \
+i3lock \
+i3status \
+inkscape \
+libnotify \
+lxappearance-gtk3 \
+mesa \
+mlocate \
+networkmanager \
+nitrogen \
+noto-fonts-emoji \
+ntfs-3g \
+numlockx \
+openssh \
+p7zip \
+pavucontrol \
+polkit \
+polkit-gnome \
+pulseaudio \
+pulseaudio-alsa \
+pulseaudio-bluetooth \
+ristretto \
+thunar \
+thunar-archive-plugin \
+thunar-media-tags-plugin \
+transmission-gtk \
+ttf-croscore \
+ttf-dejavu \
+ttf-inconsolata \
+ttf-roboto \
+ttf-ubuntu-font-family \
+tumbler \
+unrar \
+unzip \
+vlc \
+wpa_supplicant \
+xdg-user-dirs \
+xorg-server \
+xorg-xinit \
+xorg-xset \
+xz \
+zip
 
 # Install yay, a pacman wrapper with AUR support
 git clone https://aur.archlinux.org/yay.git \
@@ -76,4 +138,6 @@ sudo systemctl enable systemd-timesyncd.service
 sudo systemctl enable iptables.service
 # If there is any SSD with TRIM support
 # sudo systemctl enable fstrim.timer
-
+# If there is any bluetooth adapter
+# sudo systemctl enable bluetooth.service
+# sudo systemctl start bluetooth.service
