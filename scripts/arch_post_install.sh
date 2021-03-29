@@ -46,10 +46,8 @@ blueman \
 bluez \
 bluez-utils \
 bzip2 \
-catfish \
 code \
 compton \
-dmenu \
 dunst \
 ffmpegthumbnailer \
 figlet \
@@ -66,7 +64,6 @@ gzip \
 i3-wm \
 i3blocks \
 i3lock \
-i3status \
 inkscape \
 libnotify \
 lxappearance-gtk3 \
@@ -86,12 +83,14 @@ pulseaudio \
 pulseaudio-alsa \
 pulseaudio-bluetooth \
 ristretto \
+rofi \
 thunar \
 thunar-archive-plugin \
 thunar-media-tags-plugin \
 transmission-gtk \
 ttf-croscore \
 ttf-dejavu \
+ttf-font-awesome \
 ttf-inconsolata \
 ttf-roboto \
 ttf-ubuntu-font-family \
@@ -140,4 +139,4 @@ sudo systemctl enable iptables.service
 # sudo systemctl enable fstrim.timer
 # If there is any bluetooth adapter
 # sudo systemctl enable bluetooth.service
-# sudo systemctl start bluetooth.service
+
