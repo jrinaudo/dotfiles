@@ -74,7 +74,7 @@ interval=5
 #interval=60
 
 [iptables]
-command=systemd_unit
+command=~/scripts/i3blocks/systemd_unit
 markup=pango
 label= iptables: 
 interval=once
