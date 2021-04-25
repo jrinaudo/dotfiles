@@ -29,6 +29,11 @@ command=~/scripts/i3blocks/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
+# [docker]
+# color=#0db7ed
+# interval=10
+# LABEL= 
+
 [bitcoin]
 interval=600
 color=#f2a900
@@ -37,6 +42,23 @@ color=#f2a900
 command=curl -Ss 'https://wttr.in/Rosario?0&T&Q' | cut -c 16- | head -2 | xargs echo
 interval=3600
 color=#A4C2F4
+
+[iface]
+LABEL=  
+IFACE=enp2s0
+ADDRESS_FAMILY=inet6?
+color=#00cc00
+interval=5
+
+# [wifi]
+# label=  
+# INTERFACE=
+# interval=60
+# separator=false
+
+# [ssid]
+# INTERFACE=wlp0s20u2
+# interval=60
 
 [disk]
 command=~/scripts/i3blocks/disk -f " {used} {funit}iB / {total} {tunit}iB ({pused}%)" -tc '{pfree}' '<' 20 -tc '{pfree}' '<' 10
@@ -56,27 +78,10 @@ interval=5
 label=  
 interval=5
 
-[iface]
-LABEL=  
-IFACE=enp2s0
-ADDRESS_FAMILY=inet6?
-color=#00cc00
-interval=5
-
-#[wifi]
-#label=  
-#INTERFACE=
-#interval=60
-#separator=false
-
-#[ssid]
-#INTERFACE=wlp0s20u2
-#interval=60
-
 [iptables]
 command=~/scripts/i3blocks/systemd_unit
 markup=pango
-label= iptables: 
+label=  iptables: 
 interval=once
 UNIT_NAME=iptables.service
 ACTIVE_COLOR=green

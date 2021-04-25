@@ -64,6 +64,7 @@ gzip \
 i3-wm \
 i3blocks \
 i3lock \
+imagemagick \
 inkscape \
 libnotify \
 lxappearance-gtk3 \
