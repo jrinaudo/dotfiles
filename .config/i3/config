@@ -222,6 +222,7 @@ bindsym $mod+Control+l exec '~/scripts/i3blurlock.sh'
 # Frequent programs shortcuts
 bindsym $mod+x exec thunar ~/Downloads
 bindsym $mod+n exec google-chrome-stable
+bindsym $mod+Shift+n exec google-chrome-stable --incognito
 
 exec --no-startup-id dunst
 exec --no-startup-id blueman-applet
