@@ -137,8 +137,8 @@ set mouse=a
 let g:netrw_liststyle = 3
 
 " Show invisible characters
-set list
-set listchars=tab:>-,space:·,trail:~,extends:>,precedes:<
+" set list
+" set listchars=tab:>-,space:·,trail:~,extends:>,precedes:<
 
 " show command as it's being entered
 set showcmd
@@ -399,7 +399,9 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'joshdick/onedark.vim'
+Plug '/usr/bin/fzf'
+Plug 'jremmen/vim-ripgrep'
+Plug 'tomasiser/vim-code-dark'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'itchyny/lightline.vim'
@@ -412,11 +414,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'tpope/vim-surround'
-Plug '/usr/bin/fzf'
 call plug#end()
 
-" Lightline theme
-let g:lightline = {'colorscheme': 'onedark'}
 let g:ale_ruby_rubocop_executable = 'bundle'
 let g:ale_fixers = {'ruby': ['rubocop']}
 
@@ -429,6 +428,6 @@ if (has("termguicolors"))
 endif
 
 try
-    colorscheme onedark
+    colorscheme codedark
 catch
 endtry

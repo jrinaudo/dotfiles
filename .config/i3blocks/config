@@ -29,22 +29,23 @@ command=~/scripts/i3blocks/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
-# [docker]
-# color=#0db7ed
-# interval=10
-# LABEL= 
-
 [bitcoin]
 interval=600
 color=#f2a900
 
 [weather]
+label=  
 command=curl -Ss 'https://wttr.in/Rosario?0&T&Q' | cut -c 16- | head -2 | xargs echo
 interval=3600
 color=#A4C2F4
 
+[docker]
+color=#0db7ed
+interval=60
+LABEL= 
+
 [iface]
-LABEL=  
+label= 
 IFACE=enp2s0
 ADDRESS_FAMILY=inet6?
 color=#00cc00
@@ -61,32 +62,22 @@ interval=5
 # interval=60
 
 [disk]
-command=~/scripts/i3blocks/disk -f " {used} {funit}iB / {total} {tunit}iB ({pused}%)" -tc '{pfree}' '<' 20 -tc '{pfree}' '<' 10
+command=~/scripts/i3blocks/disk -f "  {used} {funit}iB / {total} {tunit}iB ({pused}%)" -tc '{pfree}' '<' 20 -tc '{pfree}' '<' 10
 instance=/
 interval=30
 
 [disk]
-command=~/scripts/i3blocks/disk -f " {used} {funit}iB / {total} {tunit}iB ({pused}%)" -tc '{pfree}' '<' 20 -tc '{pfree}' '<' 10
+command=~/scripts/i3blocks/disk -f "  {used} {funit}iB / {total} {tunit}iB ({pused}%)" -tc '{pfree}' '<' 20 -tc '{pfree}' '<' 10
 instance=/home
 interval=30
-
-[cpu]
-label=  
-interval=5
 
 [memory]
 label=  
 interval=5
 
-[iptables]
-command=~/scripts/i3blocks/systemd_unit
-markup=pango
-label=  iptables: 
-interval=once
-UNIT_NAME=iptables.service
-ACTIVE_COLOR=green
-INACTIVE_COLOR=orange
-FAILED_COLOR=red
+[cpu]
+label=  
+interval=5
 
 [volume-pulseaudio]
 interval=once
@@ -109,16 +100,29 @@ SHORT_FORMAT="${SYMB} ${VOL}%"
 ## SUBSCRIBE=1 requires interval=persist and always uses LONG_FORMAT
 #SUBSCRIBE=0
 
-[time_usa]
-command=echo "USA: $(TZ=America/New_York date +%T)"
+[systemd_unit]
+instance=iptables
+markup=pango
+label=  iptables: 
+interval=once
+UNIT_NAME=iptables.service
+ACTIVE_COLOR=green
+INACTIVE_COLOR=orange
+FAILED_COLOR=red
+
+[time]
+instance=usa
+TZ=America/New_York
+command=echo "USA: $(date +%T)"
 interval=5
 
-[time_arg]
+[time]
+instance=arg
+TZ=America/Argentina/Buenos_Aires
 command=echo "ARG: $(date +%T)"
 interval=5
 
 [rofi-calendar]
 interval=3600
-LABEL=  
 DATEFTM=+%a. %d %b. %Y
-#SHORTFTM=+%d.%m.%Y
+SHORTFTM=+%d.%m.%Y
