@@ -83,6 +83,7 @@ polkit-gnome \
 pulseaudio \
 pulseaudio-alsa \
 pulseaudio-bluetooth \
+ripgrep \
 ristretto \
 rofi \
 thunar \
@@ -99,7 +100,6 @@ tumbler \
 unrar \
 unzip \
 vlc \
-wpa_supplicant \
 xdg-user-dirs \
 xorg-server \
 xorg-xinit \
