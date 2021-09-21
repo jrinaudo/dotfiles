@@ -403,17 +403,17 @@ Plug '/usr/bin/fzf'
 Plug 'jremmen/vim-ripgrep'
 Plug 'tomasiser/vim-code-dark'
 Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
-Plug 'itchyny/lightline.vim'
-Plug 'dense-analysis/ale'
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
-Plug 'tpope/vim-rails'
+" Plug 'tpope/vim-fugitive'
+" Plug 'itchyny/lightline.vim'
+" Plug 'dense-analysis/ale'
+" Plug 'prettier/vim-prettier', {
+"    \ 'do': 'yarn install',
+"    \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+" Plug 'tpope/vim-rails'
+" Plug 'leafgarland/typescript-vim'
+" Plug 'tpope/vim-surround'
 Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
-Plug 'tpope/vim-surround'
 call plug#end()
 
 let g:ale_ruby_rubocop_executable = 'bundle'

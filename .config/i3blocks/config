@@ -44,13 +44,6 @@ color=#0db7ed
 interval=60
 LABEL= 
 
-[iface]
-label= 
-IFACE=enp2s0
-ADDRESS_FAMILY=inet6?
-color=#00cc00
-interval=5
-
 # [wifi]
 # label=  
 # INTERFACE=
@@ -70,6 +63,13 @@ interval=30
 command=~/scripts/i3blocks/disk -f "  {used} {funit}iB / {total} {tunit}iB ({pused}%)" -tc '{pfree}' '<' 20 -tc '{pfree}' '<' 10
 instance=/home
 interval=30
+
+[iface]
+label= 
+IFACE=enp2s0
+ADDRESS_FAMILY=inet6?
+color=#00cc00
+interval=5
 
 [memory]
 label=  
