@@ -78,6 +78,7 @@ numlockx \
 openssh \
 p7zip \
 pavucontrol \
+playerctl \
 polkit \
 polkit-gnome \
 pulseaudio \
