@@ -110,19 +110,12 @@ ACTIVE_COLOR=green
 INACTIVE_COLOR=orange
 FAILED_COLOR=red
 
-[time]
-instance=usa
-TZ=America/New_York
-command=echo "USA: $(date +%T)"
-interval=5
-
-[time]
-instance=arg
-TZ=America/Argentina/Buenos_Aires
-command=echo "ARG: $(date +%T)"
-interval=5
-
 [rofi-calendar]
 interval=3600
 DATEFTM=+%a. %d %b. %Y
 SHORTFTM=+%d.%m.%Y
+
+[time]
+TZ=America/Argentina/Buenos_Aires
+command=echo "$(date +%T)"
+interval=5
