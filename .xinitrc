@@ -34,5 +34,4 @@ fi
 
 numlockx &
 xset r rate 200 40 &
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec i3
