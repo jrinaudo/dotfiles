@@ -52,6 +52,7 @@ ffmpegthumbnailer \
 figlet \
 file-roller \
 filezilla \
+font-manager \
 fzf \
 gimp \
 git \
@@ -113,7 +114,7 @@ zip
 git clone https://aur.archlinux.org/yay.git \
 && cd yay \
 && makepkg -si \
-&& yay -S google-chrome ttf-monaco ttf-yosemite-san-francisco-font-git
+&& yay -S brave-bin
 
 # get pulseaudio to handle X11 bell events
 sudo tee -a /etc/pulse/default.pa > /dev/null <<EOT
