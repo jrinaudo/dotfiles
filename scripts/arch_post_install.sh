@@ -79,6 +79,7 @@ ntfs-3g \
 numlockx \
 openssh \
 p7zip \
+parcellite \
 pavucontrol \
 playerctl \
 picom \
