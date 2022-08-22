@@ -202,7 +202,7 @@ bindsym $mod+minus scratchpad show
 exec nitrogen --restore
 
 # Windows effects
-exec --no-startup-id compton
+exec --no-startup-id picom -b
 
 # Screenshots
 bindsym Print exec gnome-screenshot -i
