@@ -110,10 +110,10 @@ ACTIVE_COLOR=green
 INACTIVE_COLOR=orange
 FAILED_COLOR=red
 
-[rofi-calendar]
+[date]
+TZ=America/Argentina/Buenos_Aires
+command=echo "$(date +'%A %d/%m/%Y')"
 interval=3600
-DATEFTM=+%a. %d %b. %Y
-SHORTFTM=+%d.%m.%Y
 
 [time]
 TZ=America/Argentina/Buenos_Aires
