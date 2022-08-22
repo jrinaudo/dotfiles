@@ -47,7 +47,6 @@ bluez \
 bluez-utils \
 bzip2 \
 code \
-compton \
 dunst \
 ffmpegthumbnailer \
 figlet \
@@ -79,6 +78,7 @@ openssh \
 p7zip \
 pavucontrol \
 playerctl \
+picom \
 polkit \
 polkit-gnome \
 pulseaudio \
