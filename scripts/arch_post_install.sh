@@ -34,81 +34,43 @@ COMMIT
 EOT
 
 # Install basic programs
-sudo pacman -S --needed --noconfirm
+sudo pacman -S --needed
 alacritty \
 alsa-utils \
 arandr \
-arc-gtk-theme \
-arc-icon-theme \
 base-devel \
 bash-completion \
-blueman \
-bluez \
-bluez-utils \
-bzip2 \
+blueman bluez bluez-utils \
 code \
-dunst \
-ffmpegthumbnailer \
+exfatprogs \
 figlet \
-file-roller \
-filezilla \
+flat-remix flat-remix-gtk \
 font-manager \
 fzf \
-gimp \
+gimp imagemagick inkscape \
 git \
-gnome-screenshot \
-gvfs \
-gvfs-mtp \
+gnupg \
 gvim \
-gzip \
-i3-wm \
-i3blocks \
-i3lock \
-imagemagick \
-inkscape \
+i3-wm i3blocks i3lock dex gnome-screenshot lxappearance-gtk3 nitrogen picom rofi \
+libimobiledevice \
 libnotify \
-lxappearance-gtk3 \
 mesa \
-mlocate \
 networkmanager \
-nitrogen \
-noto-fonts-emoji \
-ntfs-3g \
-numlockx \
 openssh \
-p7zip \
 parcellite \
-pavucontrol \
+pass \
+pavucontrol pipewire pipewire-alsa pipewire-audio pipewire-pulse wireplumber \
 playerctl \
-picom \
-polkit \
-polkit-gnome \
-pulseaudio \
-pulseaudio-alsa \
-pulseaudio-bluetooth \
+polkit lxsession-gtk3 \
 ripgrep \
 ristretto \
-rofi \
-thunar \
-thunar-archive-plugin \
-thunar-media-tags-plugin \
+thunar gvfs gvfs-gphoto2 ffmpegthumbnailer thunar-archive-plugin thunar-media-tags-plugin tumbler webp-pixbuf-loader xdg-user-dirs \
 transmission-gtk \
-ttf-croscore \
-ttf-dejavu \
-ttf-font-awesome \
-ttf-inconsolata \
-ttf-roboto \
-ttf-ubuntu-font-family \
-tumbler \
-unrar \
-unzip \
+noto-fonts-emoji ttf-croscore ttf-dejavu ttf-font-awesome ttf-inconsolata ttf-roboto \
+xarchiver bzip2 gzip p7zip unrar unzip xz zip \
 vlc \
-xdg-user-dirs \
-xorg-server \
-xorg-xinit \
-xorg-xset \
-xz \
-zip
+xorg-server xorg-xinit xorg-xset \
+xss-lock
 
 # Install yay, a pacman wrapper with AUR support
 git clone https://aur.archlinux.org/yay.git \
