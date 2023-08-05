@@ -1,6 +1,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Maintainer: 
-"       Amir Salihefendic — @amix3k
+" Maintainer:
+"       Amir Salihefendic - @amix3k
 "
 " Awesome_version:
 "       Get this config, nice color schemes and lots of plugins!
@@ -48,7 +48,7 @@ let mapleader = ","
 " Fast saving
 nmap <leader>w :w!<cr>
 
-" :W sudo saves the file 
+" :W sudo saves the file
 " (useful for handling the permission-denied error)
 command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 
@@ -60,7 +60,7 @@ command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 set so=7
 
 " Avoid garbled characters in Chinese language windows OS
-let $LANG='en' 
+let $LANG='en'
 set langmenu=en
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
@@ -124,6 +124,9 @@ if has("gui_macvim")
     autocmd GUIEnter * set vb t_vb=
 endif
 
+" Add a bit extra margin to the left
+set foldcolumn=1
+
 " Show line numbers
 set number
 
@@ -153,10 +156,18 @@ set colorcolumn=120
 " Enable syntax highlighting
 syntax enable
 
+" Set regular expression engine automatically
+set regexpengine=0
+
 " Enable 256 colors palette in Gnome Terminal
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
+
+try
+    colorscheme habamax 
+catch
+endtry
 
 set background=dark
 
@@ -191,7 +202,7 @@ set noswapfile
 set expandtab
 
 " Be smart when using tabs ;)
-" set smarttab
+set smarttab
 
 " 1 tab == 4 spaces
 set shiftwidth=4
@@ -204,6 +215,15 @@ set tw=500
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
+
+
+""""""""""""""""""""""""""""""
+" => Visual mode related
+""""""""""""""""""""""""""""""
+" Visual mode pressing * or # searches for the current selection
+" Super useful! From an idea by Michael Naumann
+vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
+vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -235,18 +255,18 @@ map <leader>h :bprevious<cr>
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove 
-map <leader>t<leader> :tabnext 
+map <leader>tm :tabmove
+map <leader>t<leader> :tabnext<cr>
 
 " Let 'tl' toggle between this and the last accessed tab
 let g:lasttab = 1
-nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
+nmap <leader>tl :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
 
 
 " Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
-map <leader>te :tabedit <C-r>=expand("%:p:h")<cr>/
+map <leader>te :tabedit <C-r>=escape(expand("%:p:h"), " ")<cr>/
 
 " Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
@@ -368,7 +388,7 @@ endfunction
 
 function! CmdLine(str)
     call feedkeys(":" . a:str)
-endfunction 
+endfunction
 
 function! VisualSelection(direction, extra_filter) range
     let l:saved_reg = @"
@@ -400,24 +420,10 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug '/usr/bin/fzf'
-Plug 'jremmen/vim-ripgrep'
-Plug 'tomasiser/vim-code-dark'
-Plug 'airblade/vim-gitgutter'
+" Plug 'airblade/vim-gitgutter'
 " Plug 'tpope/vim-fugitive'
-" Plug 'itchyny/lightline.vim'
-" Plug 'dense-analysis/ale'
-" Plug 'prettier/vim-prettier', {
-"    \ 'do': 'yarn install',
-"    \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
-" Plug 'tpope/vim-rails'
-" Plug 'leafgarland/typescript-vim'
 " Plug 'tpope/vim-surround'
-Plug 'pangloss/vim-javascript'
-Plug 'maxmellon/vim-jsx-pretty'
 call plug#end()
-
-let g:ale_ruby_rubocop_executable = 'bundle'
-let g:ale_fixers = {'ruby': ['rubocop']}
 
 " Highlight current line in insert mode
 :autocmd InsertEnter,InsertLeave * set cul!
@@ -427,7 +433,3 @@ if (has("termguicolors"))
     set termguicolors
 endif
 
-try
-    colorscheme codedark
-catch
-endtry

@@ -34,8 +34,7 @@ interval=600
 color=#f2a900
 
 [weather]
-label=  
-command=curl -Ss 'https://wttr.in/Rosario?0&T&Q' | cut -c 16- | head -2 | xargs echo
+command=curl https://wttr.in/Rosario?format=1
 interval=3600
 color=#A4C2F4
 
@@ -43,16 +42,6 @@ color=#A4C2F4
 color=#0db7ed
 interval=60
 LABEL= 
-
-# [wifi]
-# label=  
-# INTERFACE=
-# interval=60
-# separator=false
-
-# [ssid]
-# INTERFACE=wlp0s20u2
-# interval=60
 
 [disk]
 command=~/scripts/i3blocks/disk -f "  {used} {funit}iB / {total} {tunit}iB ({pused}%)" -tc '{pfree}' '<' 20 -tc '{pfree}' '<' 10
@@ -64,10 +53,13 @@ command=~/scripts/i3blocks/disk -f "  {used} {funit}iB / {total} {tunit}iB ({
 instance=/home
 interval=30
 
+# [ssid]
+# INTERFACE=wlp4s0
+# interval=60
+
 [iface]
 label= 
-IFACE=enp2s0
-ADDRESS_FAMILY=inet6?
+IFACE=wlp4s0
 color=#00cc00
 interval=5
 
@@ -79,26 +71,9 @@ interval=5
 label=  
 interval=5
 
-[volume-pulseaudio]
-interval=once
-signal=1
-#MIXER=[determined automatically]
-#SCONTROL=[determined automatically]
-##exposed format variables: ${SYMB}, ${VOL}, ${INDEX}, ${NAME}
-LONG_FORMAT="${SYMB} ${VOL}%"
-SHORT_FORMAT="${SYMB} ${VOL}%"
-#AUDIO_HIGH_SYMBOL='  '
-#AUDIO_MED_THRESH=50
-#AUDIO_MED_SYMBOL='  '
-#AUDIO_LOW_THRESH=0
-#AUDIO_LOW_SYMBOL='  '
-#AUDIO_DELTA=5
-#DEFAULT_COLOR="#ffffff"
-#MUTED_COLOR="#a0a0a0"
-#USE_ALSA_NAME=0
-#USE_DESCRIPTION=0
-## SUBSCRIBE=1 requires interval=persist and always uses LONG_FORMAT
-#SUBSCRIBE=0
+[battery2]
+markup=pango
+interval=30
 
 [systemd_unit]
 instance=iptables
@@ -109,6 +84,11 @@ UNIT_NAME=iptables.service
 ACTIVE_COLOR=green
 INACTIVE_COLOR=orange
 FAILED_COLOR=red
+
+[volume-pipewire]
+interval=once
+signal=1
+LONG_FORMAT="${SYMB}${VOL}%"
 
 [date]
 TZ=America/Argentina/Buenos_Aires
