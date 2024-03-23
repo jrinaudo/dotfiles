@@ -59,6 +59,7 @@ libimobiledevice \
 libnotify \
 mesa \
 networkmanager \
+noto-fonts-cjk \
 openssh \
 parcellite \
 pass \
