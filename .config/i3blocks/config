@@ -33,18 +33,8 @@ markup=none
 interval=600
 color=#f2a900
 
-[weather]
-command=curl https://wttr.in/Rosario?format=1
-interval=3600
-color=#A4C2F4
-
-[docker]
-color=#0db7ed
-interval=60
-LABEL= 
-
 [disk]
-command=~/scripts/i3blocks/disk -f "  {used} {funit}iB / {total} {tunit}iB ({pused}%)" -tc '{pfree}' '<' 20 -tc '{pfree}' '<' 10
+command=~/scripts/i3blocks/disk -f "  {used} {funit}iB / {total} {tunit}iB ({pused}%)" -tc '{pfree}' '<' 20 -tc '{pfree}' '<' 10
 instance=/
 interval=30
 
@@ -52,16 +42,6 @@ interval=30
 command=~/scripts/i3blocks/disk -f "  {used} {funit}iB / {total} {tunit}iB ({pused}%)" -tc '{pfree}' '<' 20 -tc '{pfree}' '<' 10
 instance=/home
 interval=30
-
-# [ssid]
-# INTERFACE=wlp4s0
-# interval=60
-
-[iface]
-label= 
-IFACE=wlp4s0
-color=#00cc00
-interval=5
 
 [memory]
 label=  
@@ -71,9 +51,13 @@ interval=5
 label=  
 interval=5
 
-[battery2]
-markup=pango
-interval=30
+[iface]
+label= 
+IFACE=wlp4s0
+BLOCK_BUTTON=1
+color=#00cc00
+display_wifi_name=1
+interval=5
 
 [systemd_unit]
 instance=iptables
@@ -85,6 +69,10 @@ ACTIVE_COLOR=green
 INACTIVE_COLOR=orange
 FAILED_COLOR=red
 
+[battery2]
+markup=pango
+interval=30
+
 [volume-pipewire]
 interval=once
 signal=1
@@ -92,10 +80,10 @@ LONG_FORMAT="${SYMB}${VOL}%"
 
 [date]
 TZ=America/Argentina/Buenos_Aires
-command=echo "$(date +'%A %d/%m/%Y')"
-interval=3600
+command=echo "  $(date +'%A %d/%m/%Y')"
+interval=600
 
 [time]
 TZ=America/Argentina/Buenos_Aires
-command=echo "$(date +%T)"
+command=echo "  $(date +%T)"
 interval=5

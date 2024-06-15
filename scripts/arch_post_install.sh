@@ -70,7 +70,7 @@ transmission-gtk \
 noto-fonts-emoji ttf-croscore ttf-dejavu ttf-font-awesome ttf-inconsolata ttf-roboto \
 xarchiver bzip2 gzip p7zip unrar unzip xz zip \
 vlc \
-xorg-server xorg-xinit xorg-xset \
+xorg-server xorg-xinit xorg-xset xclip \
 xss-lock
 
 # Install yay, a pacman wrapper with AUR support
