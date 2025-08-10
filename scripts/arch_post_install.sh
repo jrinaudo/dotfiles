@@ -62,7 +62,7 @@ mesa \
 networkmanager iw \
 noto-fonts-cjk \
 openssh \
-parcellite \
+clipmenu \
 pass \
 pavucontrol pipewire pipewire-alsa pipewire-audio pipewire-pulse wireplumber \
 playerctl \
