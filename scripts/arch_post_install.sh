@@ -40,6 +40,7 @@ alsa-utils \
 arandr \
 base-devel \
 bash-completion \
+bind \
 blueman bluez bluez-utils \
 code \
 exfatprogs \
@@ -51,11 +52,11 @@ gimp imagemagick inkscape \
 git \
 gnupg \
 gvim \
-i3-wm i3blocks i3lock dex gnome-screenshot lxappearance-gtk3 nitrogen picom rofi \
+i3-wm i3blocks i3lock dex gnome-screenshot scrot lxappearance-gtk3 nitrogen picom rofi \
 libimobiledevice \
 libnotify \
 mesa \
-networkmanager \
+networkmanager iw \
 noto-fonts-cjk \
 openssh \
 parcellite \
@@ -67,7 +68,7 @@ ripgrep \
 ristretto \
 thunar gvfs gvfs-gphoto2 ffmpegthumbnailer thunar-archive-plugin thunar-media-tags-plugin tumbler webp-pixbuf-loader xdg-user-dirs \
 transmission-gtk \
-noto-fonts-emoji ttf-croscore ttf-dejavu ttf-font-awesome ttf-inconsolata ttf-roboto \
+noto-fonts-emoji ttf-croscore ttf-dejavu otf-font-awesome ttf-inconsolata ttf-roboto \
 xarchiver bzip2 gzip p7zip unrar unzip xz zip \
 vlc \
 xorg-server xorg-xinit xorg-xset xclip \
