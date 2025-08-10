@@ -1,8 +1,0 @@
-configuration {
-	modi: "drun";
-	show-icons: true;
-	cycle: false;
-	drun-match-fields: "name";
-}
-
-@theme "blurry"
