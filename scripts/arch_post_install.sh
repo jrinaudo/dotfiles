@@ -62,7 +62,7 @@ parcellite \
 pass \
 pavucontrol pipewire pipewire-alsa pipewire-audio pipewire-pulse wireplumber \
 playerctl \
-polkit lxsession-gtk3 \
+polkit polkit-gnome \
 ripgrep \
 ristretto \
 thunar gvfs gvfs-gphoto2 ffmpegthumbnailer thunar-archive-plugin thunar-media-tags-plugin tumbler webp-pixbuf-loader xdg-user-dirs \

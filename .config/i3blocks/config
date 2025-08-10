@@ -30,18 +30,18 @@ separator_block_width=15
 markup=none
 
 [bitcoin]
-interval=600
+interval=120
 color=#f2a900
 
 [disk]
-command=~/scripts/i3blocks/disk -f "  {used} {funit}iB / {total} {tunit}iB ({pused}%)" -tc '{pfree}' '<' 20 -tc '{pfree}' '<' 10
+command=~/scripts/i3blocks/disk -f "  {used} / {total} {tunit}iB ({pused}%)" -tc '{pfree}' '<' 20 -tc '{pfree}' '<' 10
 instance=/
-interval=30
+interval=10
 
 [disk]
-command=~/scripts/i3blocks/disk -f "  {used} {funit}iB / {total} {tunit}iB ({pused}%)" -tc '{pfree}' '<' 20 -tc '{pfree}' '<' 10
+command=~/scripts/i3blocks/disk -f "  {used} / {total} {tunit}iB ({pused}%)" -tc '{pfree}' '<' 20 -tc '{pfree}' '<' 10
 instance=/home
-interval=30
+interval=10
 
 [memory]
 label=  
@@ -50,6 +50,11 @@ interval=5
 [cpu]
 label=  
 interval=5
+
+[volume-pipewire]
+interval=once
+signal=1
+LONG_FORMAT="${SYMB}${VOL}%"
 
 [iface]
 label= 
@@ -71,12 +76,7 @@ FAILED_COLOR=red
 
 [battery2]
 markup=pango
-interval=30
-
-[volume-pipewire]
-interval=once
-signal=1
-LONG_FORMAT="${SYMB}${VOL}%"
+interval=10
 
 [date]
 TZ=America/Argentina/Buenos_Aires
