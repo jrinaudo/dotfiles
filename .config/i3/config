@@ -239,6 +239,7 @@ bindsym XF86Launch3 exec --no-startup-id "asusctl led-mode -n"
 bindsym $mod+Control+l exec --no-startup-id "loginctl lock-session"
 
 # Frequent programs shortcuts
+bindsym $mod+c exec CM_LAUNCHER=rofi clipmenu -theme ~/.config/rofi/spotlight-dark.rasi
 bindsym $mod+x exec thunar ~/Downloads
 bindsym $mod+n exec brave
 bindsym $mod+Shift+n exec brave --incognito
