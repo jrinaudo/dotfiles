@@ -1,8 +1,6 @@
-#!/usr/bin/env python3
-import json
-import urllib.request
+#!/usr/bin/env bash
 
-CURRENCY = "USD"
-with urllib.request.urlopen("https://blockchain.info/ticker") as url:
-    data = json.loads(url.read().decode())
-    print(' ', data[CURRENCY]['last'])
+price=$(curl -s "https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT" \
+    | sed -E 's/.*"price":"([0-9]+).*/\1/')
+
+echo "  $price"
