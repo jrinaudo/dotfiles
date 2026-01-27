@@ -37,7 +37,7 @@ EOT
 sudo pacman -S --needed
 alsa-utils pavucontrol pipewire pipewire-alsa pipewire-audio pipewire-pulse playerctl wireplumber \
 base-devel exfatprogs \
-bash-completion clipcat figlet foot fzf \
+bash-completion cliphist figlet foot fzf \
 bind iw networkmanager \
 blueman bluez bluez-utils \
 flat-remix flat-remix-gtk nwg-look \

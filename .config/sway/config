@@ -52,8 +52,8 @@ exec swayidle -w \
 
     input type:keyboard {
         xkb_layout "us"
-        repeat_delay 300
-        repeat_rate 30
+        repeat_delay 200
+        repeat_rate 35
     }
 
 # You can also configure each device individually.
@@ -222,7 +222,7 @@ bindsym $mod+r mode "resize"
     # Lock the screen
     bindsym $mod+Control+l exec loginctl lock-session
     # Frequent programs shortcuts
-    bindsym $mod+c exec clipcat-menu
+    bindsym $mod+c exec cliphist list | rofi -dmenu -cycle false -theme ~/.config/rofi/spotlight-dark.rasi | cliphist decode | wl-copy
     bindsym $mod+x exec thunar ~/Downloads
     bindsym $mod+n exec brave
     bindsym $mod+Shift+n exec brave --incognito
@@ -254,6 +254,6 @@ smart_borders on
 #
 exec /usr/bin/blueman-applet
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec /usr/bin/clipcatd
+exec wl-paste --watch cliphist store
 
 include /etc/sway/config.d/*
