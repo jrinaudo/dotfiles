@@ -33,46 +33,27 @@ sudo tee /etc/iptables/iptables.rules > /dev/null <<EOT
 COMMIT
 EOT
 
-# Install basic programs
+# Install basic packages
 sudo pacman -S --needed
-alacritty \
-alsa-utils \
-arandr \
-base-devel \
-bash-completion \
-bind \
+alsa-utils pavucontrol pipewire pipewire-alsa pipewire-audio pipewire-pulse playerctl wireplumber \
+base-devel exfatprogs \
+bash-completion clipcat figlet foot fzf \
+bind iw networkmanager \
 blueman bluez bluez-utils \
-code \
-exfatprogs \
-figlet \
-flat-remix flat-remix-gtk \
-font-manager \
-fzf \
+flat-remix flat-remix-gtk nwg-look \
+font-manager noto-fonts-emoji noto-fonts-cjk ttf-croscore ttf-dejavu otf-font-awesome ttf-inconsolata \
 gimp imagemagick inkscape \
-git \
-gnupg \
-gvim \
-i3-wm i3blocks i3lock dex gnome-screenshot scrot lxappearance-gtk3 nitrogen picom rofi \
+git code gvim \
+gnupg openssh \
+gvfs gvfs-gphoto2 ffmpegthumbnailer thunar thunar-archive-plugin thunar-media-tags-plugin tumbler webp-pixbuf-loader xdg-user-dirs \
 libimobiledevice \
 libnotify \
 mesa \
-networkmanager iw \
-noto-fonts-cjk \
-openssh \
-clipmenu \
-pass \
-pavucontrol pipewire pipewire-alsa pipewire-audio pipewire-pulse wireplumber \
-playerctl \
 polkit polkit-gnome \
-ripgrep \
-ristretto \
-thunar gvfs gvfs-gphoto2 ffmpegthumbnailer thunar-archive-plugin thunar-media-tags-plugin tumbler webp-pixbuf-loader xdg-user-dirs \
+ristretto vlc \
+sway swaybg swayidle swaylock i3blocks gnome-screenshot rofi wdisplays \
 transmission-gtk \
-noto-fonts-emoji ttf-croscore ttf-dejavu otf-font-awesome ttf-inconsolata ttf-roboto \
-xarchiver bzip2 gzip p7zip unrar unzip xz zip \
-vlc \
-xorg-server xorg-xinit xorg-xset xclip \
-xss-lock
+xarchiver bzip2 gzip p7zip unrar unzip xz zip
 
 # Install yay, a pacman wrapper with AUR support
 git clone https://aur.archlinux.org/yay.git \
@@ -107,4 +88,3 @@ sudo systemctl enable iptables.service
 # sudo systemctl enable fstrim.timer
 # If there is any bluetooth adapter
 # sudo systemctl enable bluetooth.service
-
