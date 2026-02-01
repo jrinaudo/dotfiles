@@ -40,6 +40,7 @@ base-devel exfatprogs \
 bash-completion cliphist figlet foot fzf \
 bind iw networkmanager \
 blueman bluez bluez-utils \
+dunst libnotify \
 flat-remix flat-remix-gtk nwg-look \
 font-manager noto-fonts-emoji noto-fonts-cjk ttf-croscore ttf-dejavu otf-font-awesome ttf-inconsolata \
 gimp imagemagick inkscape \
@@ -47,7 +48,6 @@ git code gvim \
 gnupg openssh \
 gvfs gvfs-gphoto2 ffmpegthumbnailer thunar thunar-archive-plugin thunar-media-tags-plugin tumbler webp-pixbuf-loader xdg-user-dirs \
 libimobiledevice \
-libnotify \
 mesa \
 polkit polkit-gnome \
 ristretto vlc \

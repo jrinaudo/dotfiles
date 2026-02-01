@@ -31,8 +31,8 @@ output * bg ~/Pictures/pexels-jake-pnw-1761279.jpg fill
 ### Idle configuration
 
 exec swayidle -w \
-          timeout 300 'swaylock -f -c 000000' \
-          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+          timeout 600 'swaylock -f -c 000000' \
+          timeout 900 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
           before-sleep 'swaylock -f -c 000000'
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
@@ -252,6 +252,7 @@ smart_borders on
 #
 # Applications autostart:
 #
+exec /usr/bin/dunst
 exec /usr/bin/blueman-applet
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec wl-paste --watch cliphist store
