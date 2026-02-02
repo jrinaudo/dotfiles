@@ -214,7 +214,7 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
     # Screenshots
-    bindsym Print exec gnome-screenshot -i
+    bindsym Print exec grim -g "$(slurp)"
     # Keyboard
     bindsym --locked XF86KbdBrightnessUp exec asusctl -n
     bindsym --locked XF86KbdBrightnessDown exec asusctl -p
