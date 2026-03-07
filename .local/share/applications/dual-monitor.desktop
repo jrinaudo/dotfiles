@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Dual monitor
+Comment=Use 2 monitors
+Exec=wlr-randr --output eDP-1 --on --output HDMI-A-1 --on --above eDP-1
+Icon=display
+Terminal=false
+Type=Application
+Categories=Settings;HardwareSettings;

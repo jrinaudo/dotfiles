@@ -220,7 +220,7 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86KbdBrightnessDown exec asusctl -p
     bindsym --locked XF86Launch3 exec asusctl led-mode -n
     # Lock the screen
-    bindsym $mod+Control+l exec loginctl lock-session
+    bindsym $mod+Control+l exec swaylock -f -c 000000
     # Frequent programs shortcuts
     bindsym $mod+c exec cliphist list | rofi -dmenu -cycle false -theme ~/.config/rofi/spotlight-dark.rasi | cliphist decode | wl-copy
     bindsym $mod+x exec thunar ~/Downloads

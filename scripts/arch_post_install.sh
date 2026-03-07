@@ -51,7 +51,7 @@ libimobiledevice \
 mesa \
 polkit polkit-gnome \
 ristretto vlc \
-sway swaybg swayidle swaylock grim slurp i3blocks rofi wdisplays \
+sway swaybg swayidle swaylock grim slurp i3blocks rofi wlr-randr \
 transmission-gtk \
 xarchiver bzip2 gzip p7zip unrar unzip xz zip
 

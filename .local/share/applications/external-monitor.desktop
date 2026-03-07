@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=External monitor only
+Comment=Use the external monitor only
+Exec=wlr-randr --output eDP-1 --off --output HDMI-A-1 --on
+Icon=display
+Terminal=false
+Type=Application
+Categories=Settings;HardwareSettings;
