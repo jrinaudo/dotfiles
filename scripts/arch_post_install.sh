@@ -6,7 +6,45 @@ KEYMAP=la-latin1
 FONT=Lat2-Terminus16
 EOT
 
-# Configure and start ntp service
+# Configure DNS resolution
+sudo ln -sf ../run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+
+# Configure network interfaces and DHCP
+sudo tee /etc/systemd/network/20-wired.network <<EOT
+[Match]
+Name=enp1s0
+
+[Link]
+RequiredForOnline=no
+
+[Network]
+DHCP=yes
+
+[DHCPv4]
+RouteMetric=100
+
+[IPv6AcceptRA]
+RouteMetric=100
+EOT
+
+sudo tee /etc/systemd/network/25-wireless.network <<EOT
+[Match]
+Name=wlp2s0
+
+[Link]
+RequiredForOnline=routable
+
+[Network]
+DHCP=yes
+
+[DHCPv4]
+RouteMetric=600
+
+[IPv6AcceptRA]
+RouteMetric=600
+EOT
+
+# Configure NTP service
 sudo tee /etc/systemd/timesyncd.conf > /dev/null <<EOT
 [Time]
 NTP=0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.pool.ntp.org
@@ -38,7 +76,7 @@ sudo pacman -S --needed
 alsa-utils pavucontrol pipewire pipewire-alsa pipewire-audio pipewire-pulse playerctl wireplumber \
 base-devel exfatprogs \
 bash-completion cliphist figlet foot fzf \
-bind iw networkmanager \
+bind iw iwd impala \
 blueman bluez bluez-utils \
 dunst libnotify \
 flat-remix flat-remix-gtk nwg-look \
@@ -50,7 +88,7 @@ gvfs gvfs-gphoto2 ffmpegthumbnailer thunar thunar-archive-plugin thunar-media-ta
 libimobiledevice \
 mesa \
 polkit polkit-gnome \
-ristretto vlc \
+ristretto mpv \
 sway swaybg swayidle swaylock grim slurp i3blocks rofi wlr-randr \
 transmission-gtk \
 xarchiver bzip2 gzip p7zip unrar unzip xz zip
@@ -81,8 +119,10 @@ fi
 EOT
 
 # Services
-sudo systemctl enable NetworkManager.service
+sudo systemctl enable systemd-resolved.service
+sudo systemctl enable systemd-networkd.service
 sudo systemctl enable systemd-timesyncd.service
+sudo systemctl enable iwd.service
 sudo systemctl enable iptables.service
 # If there is any SSD with TRIM support
 # sudo systemctl enable fstrim.timer

@@ -58,7 +58,7 @@ LONG_FORMAT="${SYMB}${VOL}%"
 
 [iface]
 label= 
-IFACE=wlp4s0
+IFACE=wlan0
 BLOCK_BUTTON=1
 color=#00cc00
 display_wifi_name=1
