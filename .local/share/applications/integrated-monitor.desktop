@@ -1,6 +1,6 @@
 [Desktop Entry]
 Version=1.0
-Name=Integrated monitor only
+Name=Integrated monitor
 Comment=Use the integrated monitor only
 Exec=wlr-randr --output eDP-1 --on --output HDMI-A-1 --off
 Icon=display

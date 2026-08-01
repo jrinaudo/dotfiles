@@ -130,6 +130,9 @@ set foldcolumn=1
 " Show line numbers
 set number
 
+" Use relative line numbers
+set relativenumber
+
 " Use OS clipboard
 set clipboard=unnamedplus
 

@@ -21,11 +21,12 @@ alias gcm='git commit -m'
 alias gcob='git branch | fzf | xargs git checkout'
 alias gcom='git checkout main'
 alias gd='git diff'
-alias gfom='git fetch origin main'
+alias gf='git fetch'
 alias gft="git fetch origin 'refs/tags/*:refs/tags/*'"
 alias glb='git branch --format "%(refname:short) %(upstream:short)" | awk '"'"'{if (!$2) print $1;}'"'"''
 alias gl="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'"
 alias gp='git push'
+alias gpu='git push -u origin HEAD'
 alias gpf='git push --force-with-lease'
 alias gpom='git pull origin main --ff-only'
 alias gri='git rebase -i'
@@ -41,8 +42,8 @@ PS1='\W \$ '
 
 # bash_history options
 export HISTCONTROL=ignoreboth:erasedups
-export HISTSIZE=10000
-export HISTFILESIZE=10000
+export HISTSIZE=1000
+export HISTFILESIZE=3000
 
 # bash-git-prompt
 if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then

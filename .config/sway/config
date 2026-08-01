@@ -255,6 +255,6 @@ smart_borders on
 exec /usr/bin/dunst
 exec /usr/bin/blueman-applet
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec wl-paste --watch cliphist store
+exec wl-paste --watch cliphist -max-items 20 store
 
 include /etc/sway/config.d/*
