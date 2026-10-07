@@ -79,16 +79,6 @@ git clone https://aur.archlinux.org/yay.git \
 && makepkg -si \
 && yay -S brave-bin
 
-# get pulseaudio to handle X11 bell events
-sudo tee -a /etc/pulse/default.pa > /dev/null <<EOT
-# audible bell
-load-sample-lazy x11-bell /usr/share/sounds/freedesktop/stereo/bell.oga
-load-module module-x11-bell sample=x11-bell
-EOT
-
-# Create the config file to set the X window system keyboard layout
-localectl --no-convert set-x11-keymap latin
-
 # Install bash-git-prompt, an informative git prompt for bash
 git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
 cat >> ~/.bashrc <<EOT
@@ -116,3 +106,5 @@ sudo ufw enable
 # sudo systemctl enable fstrim.timer
 # If there is any bluetooth adapter
 # sudo systemctl enable bluetooth.service
+# Add this to /etc/fstab to prevent SSD wear
+# tmpfs	/home/<user>/.cache/thumbnails tmpfs  rw,size=1G,noexec,nodev,nosuid,uid=<user>,gid=<group>,mode=0700 0 0
