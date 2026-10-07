@@ -51,32 +51,12 @@ NTP=0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.pool.ntp.
 FallbackNTP=0.pool.ntp.org 1.pool.ntp.org 0.fr.pool.ntp.org
 EOT
 
-# Configure iptables firewall
-sudo tee /etc/iptables/iptables.rules > /dev/null <<EOT
-*filter
-:INPUT DROP [0:0]
-:FORWARD DROP [0:0]
-:OUTPUT ACCEPT [0:0]
-:TCP - [0:0]
-:UDP - [0:0]
--A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
--A INPUT -i lo -j ACCEPT
--A INPUT -m conntrack --ctstate INVALID -j DROP
--A INPUT -p icmp -m icmp --icmp-type 8 -m conntrack --ctstate NEW -j ACCEPT
--A INPUT -p udp -m conntrack --ctstate NEW -j UDP
--A INPUT -p tcp --tcp-flags FIN,SYN,RST,ACK SYN -m conntrack --ctstate NEW -j TCP
--A INPUT -p udp -j REJECT --reject-with icmp-port-unreachable
--A INPUT -p tcp -j REJECT --reject-with tcp-reset
--A INPUT -j REJECT --reject-with icmp-proto-unreachable
-COMMIT
-EOT
-
 # Install basic packages
 sudo pacman -S --needed
 alsa-utils pavucontrol pipewire pipewire-alsa pipewire-audio pipewire-pulse playerctl wireplumber \
 base-devel exfatprogs \
 bash-completion cliphist figlet foot fzf \
-bind iw iwd impala \
+bind iw iwd impala ufw \
 blueman bluez bluez-utils \
 dunst libnotify \
 flat-remix flat-remix-gtk nwg-look \
@@ -123,7 +103,15 @@ sudo systemctl enable systemd-resolved.service
 sudo systemctl enable systemd-networkd.service
 sudo systemctl enable systemd-timesyncd.service
 sudo systemctl enable iwd.service
-sudo systemctl enable iptables.service
+sudo systemctl enable ufw.service
+
+# Firewall
+sudo ufw default deny
+sudo ufw allow from 192.168.100.0/24
+sudo ufw allow Transmission
+sudo ufw limit ssh
+sudo ufw enable
+
 # If there is any SSD with TRIM support
 # sudo systemctl enable fstrim.timer
 # If there is any bluetooth adapter
